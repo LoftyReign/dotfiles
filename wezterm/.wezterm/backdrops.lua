@@ -6,7 +6,7 @@ local home = os.getenv("USERPROFILE") or os.getenv("HOME")
 local dimmer = { brightness = 0.075 }
 local backdrop_path = home .. "/.wezterm/backdrops"
 
-local backdrop_file = home .. "/AppData/Local/state-cache/wezterm_backdrop.txt"
+local backdrop_file = home .. "/.wezterm/cache/wezterm_backdrop.txt"
 local default_backdrop = backdrop_path .. "/4.jpg"
 
 local BackDrops = {}

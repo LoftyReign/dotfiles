@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local home = os.getenv("USERPROFILE") or os.getenv("HOME")
 
-local theme_file = home .. "/AppData/Local/state-cache/wezterm_theme.txt"
+local theme_file = home .. "/.wezterm/cache/wezterm_theme.txt"
 local default_theme = "Catppuccin Frappe"
 
 local ColorScheme = {}
