@@ -128,8 +128,6 @@ config.window_decorations = "NONE | RESIZE"
 config.default_prog = default_shell_args
 
 -- Explicitly allow scrolling and turn off history scrolling
-config.disable_default_mouse_bindings = true
-
 config.mouse_bindings = {
 	{
 		event = { Down = { streak = 1, button = { WheelUp = 1 } } },
