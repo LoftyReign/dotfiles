@@ -122,6 +122,7 @@ config.default_cursor_style = "SteadyBlock"
 config.hide_tab_bar_if_only_one_tab = true
 
 config.font_size = 14.5
+config.window_decorations = "NONE | RESIZE"
 
 -- Use bash as terminal
 config.default_prog = default_shell_args
