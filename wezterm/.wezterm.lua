@@ -21,6 +21,10 @@ config.colors = {
 	cursor_fg = "black",
 }
 
+wezterm.on("window-config-reloaded", function(window, pane)
+	backdrops:apply_last_backdrop(window, pane)
+end)
+
 -- Configure hotkeys for background togglling and theme switching
 config.keys = {
 	{

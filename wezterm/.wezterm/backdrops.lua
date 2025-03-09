@@ -7,6 +7,8 @@ local dimmer = { brightness = 0.075 }
 local backdrop_path = home .. "/.wezterm/backdrops"
 
 local backdrop_file = home .. "/.wezterm/cache/wezterm_backdrop.txt"
+local backdrop_toggle_file = home .. "/.wezterm/cache/wezterm_backdrop_toggle.txt"
+
 local default_backdrop = backdrop_path .. "/4.jpg"
 
 local BackDrops = {}
@@ -82,8 +84,15 @@ end
 ------ Background toggle
 
 function BackDrops:toggle_background(window, _)
+	local file = io.open(backdrop_toggle_file, "w")
+	if not file then
+		return
+	end
+
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.background then
+		file:write("true")
+
 		overrides.background = {
 			{
 				source = {
@@ -93,11 +102,38 @@ function BackDrops:toggle_background(window, _)
 			},
 		}
 	else
+		file:write("false")
+
 		overrides.background = nil
 	end
+	file:close()
 	window:set_config_overrides(overrides)
 end
 
 ------ Background toggle
+
+function BackDrops:apply_last_backdrop(window, _)
+	print("Loading last backdrop")
+
+	local file = io.open(backdrop_toggle_file, "r")
+	if file then
+		local should_display = file:read("l")
+		file:close()
+		if should_display == "false" then
+			return
+		end
+	end
+
+	local overrides = window:get_config_overrides() or {}
+	overrides.background = {
+		{
+			source = {
+				File = backdrop_path .. "/" .. get_last_backdrop(),
+			},
+			hsb = dimmer,
+		},
+	}
+	window:set_config_overrides(overrides)
+end
 
 return BackDrops
