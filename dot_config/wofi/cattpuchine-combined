@@ -1,0 +1,14 @@
+@define-color frappe rgba(239, 241, 245, 1);
+@define-color latte rgba(48, 52, 70, 1);
+@define-color macchiato rgba(36, 39, 58, 1);
+@define-color mocha rgba(30, 30, 46, 1);
+
+window {
+  background: linear-gradient(
+    117deg,
+    @frappe 0%, @frappe 25%,
+    @latte 25%, @latte 50%,
+    @macchiato 50%, @macchiato 75%,
+    @mocha 75%, @mocha 100%);
+}
+

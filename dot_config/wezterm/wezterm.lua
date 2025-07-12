@@ -11,7 +11,7 @@ config.colors = {
 
 config.font = wezterm.font("FiraCode Nerd Font")
 
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.7
 
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
